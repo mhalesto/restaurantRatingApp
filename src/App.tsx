@@ -1,18 +1,17 @@
 import { Redirect, Route } from 'react-router-dom';
 import {
   IonApp,
-  IonIcon,
-  IonLabel,
   IonRouterOutlet,
-  IonTabBar,
-  IonTabButton,
-  IonTabs,
 } from '@ionic/react';
+import { Storage } from '@capacitor/storage';
+import React, { useState, useEffect } from 'react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
+import Dashboard from './pages/dashboard/Dashboard';
+import Login from './pages/login/Login';
+import Register from './pages/register/Register';
+import AddRestaurant from './pages/addRestaurant/addRestaurant';
+import Reviews from './pages/reviews/Reviews';
+import AddReview from './pages/addReview/addReview';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -33,10 +32,37 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+
 const App: React.FC = () => (
+
   <IonApp>
     <IonReactRouter>
-      <IonTabs>
+      <IonRouterOutlet>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/register">
+            <Register />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
+          <Route path="/addRestaurant">
+            <AddRestaurant />
+          </Route>
+          <Route path="/reviews">
+            <Reviews />
+          </Route>
+          <Route path="/review">
+            <AddReview />
+          </Route>
+
+          <Route exact path="/">
+            <Redirect to="/login" />
+          </Route>
+      </IonRouterOutlet>
+
+      {/* <IonTabs>
         <IonRouterOutlet>
           <Route exact path="/tab1">
             <Tab1 />
@@ -51,6 +77,9 @@ const App: React.FC = () => (
             <Redirect to="/tab1" />
           </Route>
         </IonRouterOutlet>
+
+
+
         <IonTabBar slot="bottom">
           <IonTabButton tab="tab1" href="/tab1">
             <IonIcon icon={triangle} />
@@ -65,7 +94,9 @@ const App: React.FC = () => (
             <IonLabel>Tab 3</IonLabel>
           </IonTabButton>
         </IonTabBar>
-      </IonTabs>
+      </IonTabs> */}
+
+
     </IonReactRouter>
   </IonApp>
 );
