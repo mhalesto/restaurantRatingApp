@@ -24,7 +24,7 @@ const Login: React.FC = () => {
       };
       removeNameLoggedUser();
 
-      if(res.length > 0) {
+      if(res && res.length > 0) {
         const logedUser = res[0];
         const userId = logedUser.userId
 
