@@ -54,16 +54,17 @@ const Dashboard: React.FC = () => {
                     </div>
                   </div>
 
-                  <div style={{width: '20%', display: 'inline-block'}}>
+                  <div style={{width: '20%', display: 'inline-block', float: 'right'}}>
                     {/* <a href="">Reviews</a> */}
 
                     <Link
+                    style={{float: 'right'}}
                       to={{
                         pathname: "/reviews",
                         state: { resId: restaurant.resId }
                         // data: 'Halal' // your data array of objects
                       }}
-                    >Reviews</Link>
+                    > Reviews</Link>
                   </div>
                 </div>
               </IonCardContent>
